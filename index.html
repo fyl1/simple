@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HTML5 и CSS3 и немного  jQuery </title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="main.css">
+  <script src='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+<div id='map' style='width: 400px; height: 300px;'></div>
+
+<style>
+body { margin:0; padding:0; }
+#map { position:absolute; top:0; bottom:0; width:100%; }
+</style>
+
+</head>
+<body>
+
+  <header>
+
+    <div id="logo" onclick="slowScroll('#top')">
+      <span>GreenTourism</span>
+    </div>
+    <div id="about">
+      <a href="#" title="Возможности" onclick="slowScroll('#main')">О нас </a>
+      <a href="#" onclick="slowScroll('#overview')" title="Преимущества">С нами</a>
+      <a href="#" onclick="slowScroll('#contacts')" title="Контакты">Контакты</a>
+      <a href="#" onclick="slowScroll('#faq')" title="Ответы на вопросы">FAQ</a>
+    </div>
+  </header>
+
+  <div id="top">
+    <h1>Будь там, где твое сердце!</h1>
+  </div>
+
+  <div id="main">
+    <div class="intro">
+      <h2>Мы опытная команда гидов !</h2>
+      <span>Что, поможет Вам приятно провести время.</span>
+    </div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d312994.9537679227!2d33.7094495024193!3d51.372250966801204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x412bdeb56ccb1c43%3A0x3d0c6f81c63fd28!2z0J_Rg9GC0LjQstC70YzRgdC60LjQuSDRgNCw0LnQvtC9LCDQodGD0LzRgdC60LDRjyDQvtCx0LvQsNGB0YLRjA!5e1!3m2!1sru!2sua!4v1551112183974" width="600" height="450" left= "0" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <div class="text">
+      <span></span>
+    </div>
+  </div>
+
+  <div id="overview">
+    <h2>С нами </h2>
+    <h4> все проще</h4>
+
+    <div class="img">
+      <img src="imag/pike3.jpg" alt="">
+      <span>Гид знает лучшие места</span>
+    </div>
+    <div class="img">
+      <img src="imag/fire.jpg" alt="">
+      <span>Костер не потухнет</span>
+    </div>
+  </div>
+
+  <div id="contacts">
+    <center><h5>Напишите нам и с вами свяжеться наш  менеджер </h5></center>
+    <form id="form_input">
+      <label for="name">Имя <span>*</span></label><br>
+      <input type="text" placeholder="Введите имя" name="name" id="name"><br>
+      <label for="email">Ваша почта <span>*</span></label><br>
+			<input type="email" placeholder="Введите email" name="email" id="email"><br>
+			<label for="message">Сообщение <span>*</span></label><br>
+			<textarea placeholder="Введите ваше сообщение" name="message" id="message"></textarea><br>
+			<div id="mess_send" class="btn">Отправить</div>
+    </form>
+  </div>
+
+  <div id="faq">
+    <div>
+      <span class="title"> </span><br>
+      <span class="heading">Грибы ягоды, травы</span>
+      <p>Пешие путешествия по окрестностям предлагаем совместить со сбором грибов и ягод. Гид проведет Вас очень интересным и познавательным маршрутом поделившись знаниями о цветах и ​​лекарственных травах.
+    </div>
+    <div>
+      <span class="title"> </span><br>
+      <span class="heading">Конные прогулки<span>
+      <p> Гости приезжают специально для конных прогулок. Научившись у нас, они возвращаются к своим лошадям и улучшают свои навыки. Поэтому наши инструкторы предлагают множество разнообразных и живописных маршрутов, в том числе кольцевых и открытых.</div>
+          <div>
+      <span class="title"> </span><br>
+      <span class="heading">Народные ремесла</span>
+      <p>В кузнице Вы можете поработать с металлом и выковать себе какое-то изделие на память (нож, кинжал, подкову, подсвечник и др.). Проводятся занятия с бисером и работы по дереву</p>
+    </div>
+    
+  </div>
+
+<!-- This is some jQuery, slow scrolling from the menu  -->
+  <script>
+    function slowScroll(id) {
+      $('html, body').animate({
+        scrollTop: $(id).offset().top
+      }, 500);
+    }
+    
+$(document).on("scroll", function () {
+      if($(window).scrollTop() === 0)
+        $("header").removeClass("fixed");
+      else
+        $("header").attr("class", "fixed");
+    });
+  </script>
+  <div class="container">
+  <ul class="submenu">
+    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+  </ul>
+</div>
+</body>
+</html>
